@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MarketOps - Panel Administrador</title>
+</head>
+<body>
+
+    <header>
+        <h1>MarketOps</h1>
+        <p>Panel de Administrador</p>
+        <nav>
+            <ul>
+                <li><a href="#supervision">Supervisión de Sucursales</a></li>
+                <li><a href="#gestion-accesos">Gestión de Accesos</a></li>
+                <li><a href="login.html">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <hr>
+
+    <main>
+
+        <!-- 1. Tabla de Supervisión General de las 12 Sucursales -->
+        <section id="supervision">
+            <h2>Supervisión General de Sucursales</h2>
+            <p>Estado global de las 12 sucursales de MarketOps:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Sucursal</th>
+                        <th>Estado</th>
+                        <th>Detalle de Equipos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SUC-01</td>
+                        <td>Santiago Centro</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-02</td>
+                        <td>Providencia</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-03</td>
+                        <td>Maipú</td>
+                        <td>Con incidencias</td>
+                        <td>Caja 2 / Balanza 1</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-04</td>
+                        <td>La Florida</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-05</td>
+                        <td>Puente Alto</td>
+                        <td>Con incidencias</td>
+                        <td>Impresora 1</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-06</td>
+                        <td>San Bernardo</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-07</td>
+                        <td>Huechuraba</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-08</td>
+                        <td>Viña del Mar</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-09</td>
+                        <td>Valparaíso</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-10</td>
+                        <td>Rancagua</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-11</td>
+                        <td>Talca</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                    <tr>
+                        <td>SUC-12</td>
+                        <td>Chillán</td>
+                        <td>Operativa</td>
+                        <td>Sin novedades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- 2. Formulario de Asignación y Tabla de Personal Admitido -->
+        <section id="gestion-accesos">
+            <h2>Gestión de Usuarios y Permisos</h2>
+            <p>Formulario para registrar usuarios y asignar permisos:</p>
+
+            <form action="#" method="get">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label for="nombre">Nombre Completo:</label></td>
+                            <td><input type="text" id="nombre" name="nombre"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="correo">Correo Electrónico:</label></td>
+                            <td><input type="text" id="correo" name="correo"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="clave">Contraseña:</label></td>
+                            <td><input type="text" id="clave" name="clave"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="rol">Rol:</label></td>
+                            <td>
+                                <select id="rol" name="rol">
+                                    <option value="tecnico">Técnico de Soporte</option>
+                                    <option value="encargado">Encargado de Sucursal</option>
+                                    <option value="admin">Administrador</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="sucursal">Sucursal Asignada:</label></td>
+                            <td>
+                                <select id="sucursal" name="sucursal">
+                                    <option value="todas">Todas las sucursales</option>
+                                    <option value="suc-01">Sucursal 01 - Santiago Centro</option>
+                                    <option value="suc-02">Sucursal 02 - Providencia</option>
+                                    <option value="suc-03">Sucursal 03 - Maipú</option>
+                                    <option value="suc-04">Sucursal 04 - La Florida</option>
+                                    <option value="suc-05">Sucursal 05 - Puente Alto</option>
+                                    <option value="suc-06">Sucursal 06 - San Bernardo</option>
+                                    <option value="suc-07">Sucursal 07 - Huechuraba</option>
+                                    <option value="suc-08">Sucursal 08 - Viña del Mar</option>
+                                    <option value="suc-09">Sucursal 09 - Valparaíso</option>
+                                    <option value="suc-10">Sucursal 10 - Rancagua</option>
+                                    <option value="suc-11">Sucursal 11 - Talca</option>
+                                    <option value="suc-12">Sucursal 12 - Chillán</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button type="submit">Guardar Usuario</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <br>
+
+            <h3>Usuarios Registrados</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol</th>
+                        <th>Sucursal Asignada</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>USR-01</td>
+                        <td>Carlos Mendoza</td>
+                        <td>carlos@marketops.cl</td>
+                        <td>Técnico de Soporte</td>
+                        <td>Todas las sucursales</td>
+                        <td>Autorizado</td>
+                    </tr>
+                    <tr>
+                        <td>USR-02</td>
+                        <td>María Silva</td>
+                        <td>maria@marketops.cl</td>
+                        <td>Encargado de Sucursal</td>
+                        <td>Sucursal 01 - Santiago Centro</td>
+                        <td>Autorizado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>MarketOps 2026 - Módulo Administrador</p>
+    </footer>
+
+</body>
+</html>
