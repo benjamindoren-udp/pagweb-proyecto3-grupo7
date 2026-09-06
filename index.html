@@ -3,21 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-in</title>
+    <title>MarketOps - Inicio de Sesión</title>
 </head>
 <body>
-    <h1>sign-in</h1>
-    <form action="#" method="post">
-        <label for="user">Usuario:</label>
-        <input type="text"id="user" name="user" required>
-        <br><br>
+    <header>
+        <h1>MarketOps</h1>
+        <p>Sistema de Monitoreo y Soporte Técnico</p>
+    </header>
 
-        <label for="pass">Contraseña:</label>
-        <input type="password" id="pass" name="pass" required>
+    <hr>
 
-        <br><br>
+    <main>
+        <section>
+            <h2>Iniciar Sesión</h2>
+            <form action="#" method="get">
+                <label for="user">Usuario:</label><br>
+                <input type="text" id="user" name="user" required>
+                <br><br>
 
-        <button type="submit">Sign-in</button>
-    </form>
+                <label for="pass">Contraseña:</label><br>
+                <input type="password" id="pass" name="pass" required>
+                <br><br>
+            </form>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Seleccionar Cargo para Ingresar</h2>
+            <nav>
+                <ul>
+                    <li><a href="admin-panel.html">Ingresar como Administrador</a></li>
+                    <li><a href="tecnico-panel.html">Ingresar como Técnico de Soporte</a></li>
+                    <li><a href="encargado-panel.html">Ingresar como Encargado de Sucursal</a></li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>MarketOps 2026</p>
+    </footer>
 </body>
 </html>
