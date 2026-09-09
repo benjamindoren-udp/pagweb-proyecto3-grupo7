@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    height: 100vh;
+    display: flex;
+}
+
+
+
+/* Lado Izquierdo (Azul) */
+.login{
+    background-color: #3b82f6; /* Color azul estilo la imagen */
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+
+
+.welcome {
+    text-align: center;
+}
+
+.welcome h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.welcome h1 {
+    font-size: 3.5rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.welcome p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Lado Derecho (Blanco) */
+.form-side {
+    width: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+}
+
+.form-wrapper h2 {
+    color: #3b82f6;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+
+
+/* --- RESPONSIVIDAD PARA MÓVILES --- */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+    }
+    .info-side, .form-side {
+        width: 100%;
+    }
+    .info-side {
+        padding: 30px 15px;
+        min-height: 40vh; /* Que ocupe un poco menos de la mitad en celular */
+    }
+}
