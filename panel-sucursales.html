@@ -2,352 +2,120 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>MarketOps - Panel Administrador</title>
+    <title>MarketOps - Panel de Sucursales</title>
 </head>
-<body>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
 
     <header>
-        <h1>MarketOps</h1>
+        <h2>Panel General de Sucursales</h2>
+        <hr>
     </header>
 
-    <hr>
 
-    <main>
+    <table width="100%" border="1" cellpadding="20" cellspacing="10" bordercolor="#cccccc">
+        <tr>
+            <!-- Sucursal 1-->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>1. Santiago Centro</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
 
-        <section>
-            <h2>Panel General de Sucursales</h2>
+            <!-- Sucursal 2-->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>2. Providencia</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Sucursal</th>
-                        <th>Equipos Fallando</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Santiago Centro</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Providencia</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Maipú</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>La Florida</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Puente Alto</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>San Bernardo</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Huechuraba</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Viña del Mar</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Valparaíso</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Rancagua</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Talca</td>
-                        <td>0</td>
-                    </tr>
-                    <tr>
-                        <td>Chillán</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+            <!-- Sucursal 3: falla -->
+            <td align="center" bgcolor="#ffe6e6">
+                <h3>3. Maipú</h3>
+                <p><b>Hay fallas en esta sucursal</b></p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px; font-weight: bold;">Urgente</button>
+                </form>
+            </td>
+            
+            <!-- Sucursal 4-->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>4. La Florida</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+            <!-- Sucursal 5:Falla-->
+            <td align="center" bgcolor="#ffe6e6">
+                <h3>5. Puente Alto</h3>
+                <p><b>hay fallas en esta sucursal</b></p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Urgente</button>
+                </form>
+            </td>
+        <!-- Sucursal 6-->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>6. San Bernardo</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+        </tr>
 
-        <hr>
-
-        <!-- 2. Detalle de Equipos por Sucursal -->
-        <section>
-            <h2>Detalle de Equipos por Sucursal</h2>
-
-            <h3>1. Santiago Centro</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>2. Providencia</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>3. Maipú</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Con falla</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 7</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 8</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 9</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 10</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Con falla</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 3</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 2</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>4. La Florida</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 7</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>5. Puente Alto</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 7</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 8</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 9</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 3</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Fuera de servicio</td></tr>
-                    <tr><td>Impresora de etiquetas 2</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>6. San Bernardo</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>7. Huechuraba</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>8. Viña del Mar</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 7</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 8</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 2</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>9. Valparaíso</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 7</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 2</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>10. Rancagua</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 6</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>11. Talca</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 5</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-
-            <h3>12. Chillán</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tipo de Equipo</th>
-                        <th>Estado Actual</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Caja registradora 1</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 2</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 3</td><td>Funcionando</td></tr>
-                    <tr><td>Caja registradora 4</td><td>Funcionando</td></tr>
-                    <tr><td>Balanza 1</td><td>Funcionando</td></tr>
-                    <tr><td>Impresora de etiquetas 1</td><td>Funcionando</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-    </main>
-
-    <hr>
-
-    <footer>
-        <p>MarketOps 2026</p>
-    </footer>
+        <!-- Sucursal 7-->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>7. Huechuraba</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+        <!-- Sucursal 8 -->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>8. Viña del Mar</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+        <!-- Sucursal 9 -->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>9. Valparaiso</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+        <!-- Sucursal 10-->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>10. Rancagua</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+        <!-- Sucursal 11 -->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>11. Talca</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+        <!-- Sucursal 12 -->
+            <td align="center" bgcolor="#e6ffe6">
+                <h3>12. Chillan</h3>
+                <p>No hay fallas</p>
+                <form action="detalle-sucursal.html" method="GET">
+                    <button type="submit" style="padding: 10px;">Ver Detalle</button>
+                </form>
+            </td>
+    </table>
 
 </body>
 </html>
