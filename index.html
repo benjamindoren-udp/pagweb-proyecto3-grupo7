@@ -1,50 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MarketOps - Inicio</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <title>MarketOps - Inicio de Sesión</title>
 </head>
-<body>
-    <header>
-        <h1>MarketOps</h1>
-        <h2>Plataforma de monitoreo de equipos</h2>
-        <hr>
-    </header>
-    <!-- Lado izquierdo-->
-    <main class="login">
-        <section class="info">
-            <div class="logo">
-                MarketOps
-            </div>
-            <div class="welcome">
-            <h2>Bienvenido al portal</h2>
-            <h1>MarketOps</h1>
-            <p>Exclusivo para el personal de soporte IT y encargados del local</p>
-            </div>
-            <div class="footer-text">
-                © Proyecto grupo 7, 2026
-            </div>
-        </section>
-        <!--Lado derecho-->
-        <section class="form-side">
-            <div class="form-wrapper">
-                <h2>Bienvenido</h2>
-            </div>
-        </section>
-</main>
+<body style="margin: 0; padding: 0; height: 100vh;">
 
-<hr>
+    <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="40">
+        <tr>
+            <!--IZQUIERDA -->
+            <td width="50%" align="center" valign="middle" style="background-image: linear-gradient(rgba(59, 130, 246, 0.85), rgba(59, 130, 246, 0.85)), url('Gemini_Generated_Image_8yu18x8yu18x8yu1.jpeg'); background-size: cover; background-position: center;">
+                <font color="white" face="Arial, sans-serif">
+                    <h3>MarketOps</h3>
+                    <br><br><br>
+                    <h2>Bienvenido al portal</h2>
+                    <h1>MarketOps</h1>
+                    <br><br><br><br>
+                    <p><small><i>© Proyecto grupo 7, 2026</i></small></p>
+                </font>
+            </td>
 
+            <!--DERECHA login -->
+            <td width="50%" align="center" valign="middle">
+                <font face="Arial, sans-serif">
+                    <h2>Bienvenido</h2>
+                    <br>
+                   <!--login-->
+                    <form action="panel_sucursales.html" method="GET">
+                        <p>
+                            <label for="usuario"><b>Usuario:</b></label><br>
+                            <input type="text" id="usuario" name="usuario" placeholder="Ingrese el usuario" required size="35">
+                        </p>
 
+                        <p>
+                            <label for="password"><b>Contraseña:</b></label><br>
+                            <input type="password" id="password" name="password" placeholder="Ingresar contraseña" required size="35">
+                        </p>
+                        <p>
+                            <button type="submit" style="padding: 10px 40px;">Ingresar</button>
+                        </p>
+                    </form>
+                    <br>
 
-    <footer>
-        <section>
-            <h3>Problemas al acceder?</h3>
-            <p>Comunicate con el soporte si no puedes iniciar sesion.</p>
-        </section>
-        Contactos
-    </footer>
+                    <br><br><br>
+
+                    <!-- Debug -->
+                    <table width="80%" border="1" cellpadding="15" cellspacing="0" bordercolor="#cccccc">
+                        <tr>
+                            <td align="center" bgcolor="#f8f9fa">
+                                <strong>[Debug, paginas]</strong>
+                                <p><small>Acceso directo para evaluación del Hito 1</small></p>
+                                <p>
+                                    <a href="panel-sucursales.html">[ &gt;_ panel detallado ]</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                    <a href="detalle-sucursal.html">[ &gt;_ panel fallas ]</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+
+                </font>
+            </td>
+        </tr>
+    </table>
+
 </body>
 </html>
