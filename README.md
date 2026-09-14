@@ -1,4 +1,5 @@
 # pagweb-proyecto3-grupo7
+<<<<<<< HEAD
 # MarketOps - Plataforma de Monitoreo de Equipos
 
 Proyecto realizado por el grupo 7 del ramo Desarrollo Web y Móvil.
@@ -20,3 +21,13 @@ El proyecto actualmente, es solo una maqueta con las siguientes funciones a nive
 
 
 
+=======
+HTML estatico de proyecto
+
+Al index pueden acceder todos los usuarios que quieran visitar la pagina ya que es un inicio de sesion
+
+
+Paenl de sucursales entraran los tecnicos de soporete y administradores
+
+detalle sucursal tendran acceso las entidades mencionandas y el encargado de la sucursal pero solo a su sucursal no a las demàs
+>>>>>>> 13bd1abff81eef8bddb55359549338bbfcaf8481
