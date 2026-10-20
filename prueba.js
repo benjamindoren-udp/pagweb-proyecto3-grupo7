@@ -8,10 +8,10 @@ class Equipo{
 
     getInfo(){
         const informacion = {
-            estado = this.estado,
-            falla = this.falla,
-            id = this.id,
-            sucursal = this.sucursal,
+            estado: this.estado,
+            falla: this.falla,
+            id : this.id,
+            sucursal : this.sucursal,
         };
 
         return informacion;
@@ -47,19 +47,30 @@ class Sucursal{
     }
 };
 
+function obtenerEnteroAleatorio(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
+function generarBase(n){
+    let sucursales = ["La-FLorida", "Puente-Alto", "Maipu"];
+    let base = [];
+    let e;
+    for(let i = 0; i<n; i++){
+        let number = obtenerEnteroAleatorio(0,2);
+        let number1 = obtenerEnteroAleatorio(1,2);
+        if(number1 == 1){
+            e = new Equipo(sucursales[number], i, "-", true); 
+        }else {
+            e = new Equipo(sucursales[number], i, "-", false); 
+        }
+        base.push(e);
 
-const equipo1 = new Equipo(true, 1,"Equipo funcionando", "La Florida");
-const equipo2 = new Equipo(false, 2,"no registra las boletas", "La FLorida");
-const equipos = [equipo1, equipo2];
+    };
+    return base;
+}
 
-
-const sucursal = new Sucursal(equipos, "La florida")
-sucursal.getEquipos().forEach(element => {
-    console.log(sucursal in element.getInfo());
-});
-
-
-
+let base = generarBase(20);
+export {base, Equipo};
+console.log("Base generada");
 
 
