@@ -1,0 +1,182 @@
+/* ============================================================
+   MarketOps - Dashboard de Equipos
+   Archivo: public/css/style.css
+   ============================================================ */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f5f9;
+    color: #1f2937;
+}
+
+/* ---------- Header ---------- */
+header {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+header h1 { font-size: 22px; }
+header .fecha { font-size: 13px; opacity: 0.9; }
+header a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+header a:hover { background-color: rgba(255,255,255,0.15); }
+
+main { padding: 25px 30px; max-width: 1200px; margin: 0 auto; }
+
+h2 { font-size: 18px; margin: 30px 0 15px; }
+.nota-ejemplo {
+    background-color: #fffbeb;
+    border: 1px solid #fcd34d;
+    color: #92400e;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* ---------- Tarjetas de resumen ---------- */
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+.tarjeta-resumen {
+    background-color: white;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-left: 5px solid #3b82f6;
+}
+.tarjeta-resumen.alerta { border-left-color: #ef4444; }
+.tarjeta-resumen.ok     { border-left-color: #22c55e; }
+.tarjeta-resumen .valor { font-size: 30px; font-weight: bold; }
+.tarjeta-resumen .etiqueta { font-size: 13px; color: #6b7280; margin-top: 4px; }
+
+/* ---------- Tabla de fallas ---------- */
+table.fallas {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    font-size: 14px;
+}
+table.fallas th {
+    background-color: #b91c1c;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+}
+table.fallas td { padding: 12px 15px; border-bottom: 1px solid #e5e7eb; }
+table.fallas tr:last-child td { border-bottom: none; }
+table.fallas tr:hover td { background-color: #fef2f2; }
+
+/* ---------- Filtros ---------- */
+.filtros { margin-bottom: 15px; }
+.filtros button {
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 6px;
+}
+.filtros button:hover { background-color: #f3f4f6; }
+.filtros button.activo {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+}
+
+/* ---------- Tarjetas de sucursales ---------- */
+.sucursales {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 15px;
+}
+.tarjeta-sucursal {
+    background-color: white;
+    border-radius: 8px;
+    padding: 18px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    border-top: 4px solid #22c55e;
+}
+.tarjeta-sucursal.con-fallas { border-top-color: #ef4444; }
+
+.tarjeta-sucursal .cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.tarjeta-sucursal h3 { font-size: 16px; }
+
+.estado {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 999px;
+    color: white;
+    white-space: nowrap;
+}
+.estado.ok     { background-color: #22c55e; }
+.estado.falla  { background-color: #ef4444; }
+
+.lista-equipo { list-style: none; margin: 6px 0 12px; }
+.lista-equipo li {
+    font-size: 13px;
+    padding: 4px 0;
+    border-bottom: 1px dashed #e5e7eb;
+}
+.lista-equipo li:last-child { border-bottom: none; }
+
+.subtitulo {
+    font-size: 12px;
+    font-weight: bold;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-top: 8px;
+}
+.falla-descripcion { color: #b91c1c; font-size: 12px; }
+
+.etiqueta-equipo {
+    display: inline-block;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 12px;
+    margin: 2px 3px 2px 0;
+}
+.etiqueta-equipo.roja { background-color: #fee2e2; color: #b91c1c; font-weight: bold; }
+
+.ver-detalle {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 13px;
+    color: #1d4ed8;
+    text-decoration: none;
+}
+.ver-detalle:hover { text-decoration: underline; }
+
+footer {
+    text-align: center;
+    font-size: 12px;
+    color: #6b7280;
+    padding: 25px;
+}
