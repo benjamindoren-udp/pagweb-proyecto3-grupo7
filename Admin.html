@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketOps - Dashboard de Equipos</title>
+    <link rel="stylesheet" href="public/css/style.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <h1>MarketOps &mdash; Dashboard de Equipos</h1>
+            <span class="fecha">Vista de ejemplo</span>
+        </div>
+        <a href="index.html">&larr; Volver al inicio de sesi&oacute;n</a>
+    </header>
+
+    <main>
+
+        <div class="nota-ejemplo">
+            <b>Nota:</b> pagina admin. Los datos de Maip&uacute; y La Florida
+            provienen de las p&aacute;ginas de detalle reales del proyecto; el resto corresponde
+            a datos de ejemplo para completar las 12 sucursales.
+        </div>
+
+        <!-- ===== Resumen general ===== -->
+        <h2>Resumen general</h2>
+        <section class="resumen">
+            <div class="tarjeta-resumen">
+                <div class="valor">12</div>
+                <div class="etiqueta">Sucursales monitoreadas</div>
+            </div>
+            <div class="tarjeta-resumen alerta">
+                <div class="valor">2</div>
+                <div class="etiqueta">Sucursales con fallas</div>
+            </div>
+            <div class="tarjeta-resumen ok">
+                <div class="valor">10</div>
+                <div class="etiqueta">Sucursales sin fallas</div>
+            </div>
+            <div class="tarjeta-resumen alerta">
+                <div class="valor">4</div>
+                <div class="etiqueta">Equipos con fallas</div>
+            </div>
+            <div class="tarjeta-resumen ok">
+                <div class="valor">48</div>
+                <div class="etiqueta">Equipos funcionando</div>
+            </div>
+        </section>
+
+        <!-- ===== Equipos con fallas ===== -->
+        <h2>Equipos con fallas (consolidado)</h2>
+        <table class="fallas">
+            <thead>
+                <tr>
+                    <th>Sucursal</th>
+                    <th>Equipo (Id)</th>
+                    <th>Falla reportada</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>3. Maip&uacute;</b></td>
+                    <td>10</td>
+                    <td>El equipo no realiza la transacci&oacute;n.</td>
+                </tr>
+                <tr>
+                    <td><b>3. Maip&uacute;</b></td>
+                    <td>12</td>
+                    <td>El equipo no registra los productos.</td>
+                </tr>
+                <tr>
+                    <td><b>5. Puente Alto</b></td>
+                    <td>31</td>
+                    <td>El equipo no enciende.</td>
+                </tr>
+                <tr>
+                    <td><b>5. Puente Alto</b></td>
+                    <td>33</td>
+                    <td>Error al procesar el pago.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ===== Equipos por sucursal ===== -->
+        <h2>Equipos por sucursal</h2>
+
+        <div class="filtros">
+            <button class="activo">Todas (12)</button>
+            <button>Con fallas (2)</button>
+            <button>Sin fallas (10)</button>
+        </div>
+
+        <section class="sucursales" id="lista-sucursales">
+
+            <!-- 1 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>1. Santiago Centro</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 1</span><span class="etiqueta-equipo">Id 2</span><span class="etiqueta-equipo">Id 3</span><span class="etiqueta-equipo">Id 4</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 2 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>2. Providencia</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 5</span><span class="etiqueta-equipo">Id 6</span><span class="etiqueta-equipo">Id 7</span><span class="etiqueta-equipo">Id 8</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 3 : Maipú (datos reales) -->
+            <article class="tarjeta-sucursal con-fallas" data-estado="fallas">
+                <div class="cabecera">
+                    <h3>3. Maip&uacute;</h3>
+                    <span class="estado falla">2 fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 20</span><span class="etiqueta-equipo">Id 22</span><span class="etiqueta-equipo">Id 23</span><span class="etiqueta-equipo">Id 24</span></li>
+                </ul>
+                <p class="subtitulo">Equipos con fallas (2)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo roja">Id 10</span> <span class="falla-descripcion">No realiza la transacci&oacute;n.</span></li>
+                    <li><span class="etiqueta-equipo roja">Id 12</span> <span class="falla-descripcion">No registra los productos.</span></li>
+                </ul>
+                <a class="ver-detalle" href="detalle-sucursal-maipu.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 4 : La Florida (datos reales) -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>4. La Florida</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 20</span><span class="etiqueta-equipo">Id 22</span><span class="etiqueta-equipo">Id 23</span><span class="etiqueta-equipo">Id 24</span></li>
+                </ul>
+                <p class="subtitulo">Equipos con fallas (0)</p>
+                <a class="ver-detalle" href="La-Florida.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 5 : Puente Alto -->
+            <article class="tarjeta-sucursal con-fallas" data-estado="fallas">
+                <div class="cabecera">
+                    <h3>5. Puente Alto</h3>
+                    <span class="estado falla">2 fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 30</span><span class="etiqueta-equipo">Id 32</span><span class="etiqueta-equipo">Id 34</span><span class="etiqueta-equipo">Id 35</span></li>
+                </ul>
+                <p class="subtitulo">Equipos con fallas (2)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo roja">Id 31</span> <span class="falla-descripcion">El equipo no enciende.</span></li>
+                    <li><span class="etiqueta-equipo roja">Id 33</span> <span class="falla-descripcion">Error al procesar el pago.</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 6 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>6. San Bernardo</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 40</span><span class="etiqueta-equipo">Id 41</span><span class="etiqueta-equipo">Id 42</span><span class="etiqueta-equipo">Id 43</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 7 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>7. Huechuraba</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 50</span><span class="etiqueta-equipo">Id 51</span><span class="etiqueta-equipo">Id 52</span><span class="etiqueta-equipo">Id 53</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 8 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>8. Vi&ntilde;a del Mar</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 60</span><span class="etiqueta-equipo">Id 61</span><span class="etiqueta-equipo">Id 62</span><span class="etiqueta-equipo">Id 63</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 9 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>9. Valpara&iacute;so</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 70</span><span class="etiqueta-equipo">Id 71</span><span class="etiqueta-equipo">Id 72</span><span class="etiqueta-equipo">Id 73</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 10 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>10. Rancagua</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 80</span><span class="etiqueta-equipo">Id 81</span><span class="etiqueta-equipo">Id 82</span><span class="etiqueta-equipo">Id 83</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 11 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>11. Talca</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 90</span><span class="etiqueta-equipo">Id 91</span><span class="etiqueta-equipo">Id 92</span><span class="etiqueta-equipo">Id 93</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+            <!-- 12 -->
+            <article class="tarjeta-sucursal" data-estado="ok">
+                <div class="cabecera">
+                    <h3>12. Chill&aacute;n</h3>
+                    <span class="estado ok">Sin fallas</span>
+                </div>
+                <p class="subtitulo">Equipos funcionando (4)</p>
+                <ul class="lista-equipo">
+                    <li><span class="etiqueta-equipo">Id 100</span><span class="etiqueta-equipo">Id 101</span><span class="etiqueta-equipo">Id 102</span><span class="etiqueta-equipo">Id 103</span></li>
+                </ul>
+                <a class="ver-detalle" href="panel-sucursales.html">Ver detalle &rarr;</a>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>&copy; Proyecto grupo 7, 2026 &mdash; MarketOps (p&aacute;gina de ejemplo)</footer>
+
+</body>
+</html>

@@ -16,6 +16,30 @@ base.forEach(element => {
 
     }
 
+    if(element.getInfo().estado && element.getInfo().sucursal == "Maipu"){
+        const item = document.createElement("li");
+        item.textContent = `Equipo ${element.getInfo().id}`
+        listaOn.append(item);
+    }else if(element.getInfo().sucursal == "Maipu"){
+        const item = document.createElement("li");
+        item.textContent = `Equipo ${element.getInfo().id}, Falla: ${element.getInfo().falla}`
+        listaOff.append(item);
+
+
+    }
+
+    if(element.getInfo().estado && element.getInfo().sucursal == "Santiago-Centro"){
+        const item = document.createElement("li");
+        item.textContent = `Equipo ${element.getInfo().id}`
+        listaOn.append(item);
+    }else if(element.getInfo().sucursal == "Santiago-Centro"){
+        const item = document.createElement("li");
+        item.textContent = `Equipo ${element.getInfo().id}, Falla: ${element.getInfo().falla}`
+        listaOff.append(item);
+
+
+    }
+
 
 });
 
