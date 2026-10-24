@@ -2,9 +2,15 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header.jsx';
 import SucursalCard from '../components/SucursalCard.jsx';
-import { sucursales } from '../data/sucursales.js';
 
-export default function Dashboard({ rol = 'Técnico' }) {
+export default function Dashboard({ rol = 'Técnico', sucursales = [] }) {
+  const esAdmin = rol === 'Admin';
+  const esEncargado = rol === 'Encargado';
+  const esTecnico = rol === 'Técnico'; /*esto despues despues lo implementaremos bien, ahora nos enfocaremos en lo que pide solo hito2*/
+
+  const puedeVerSucursales = esAdmin || esTecnico;
+  const puedeVerDetalleSucursal = esAdmin || esEncargado || esTecnico;
+
   const [filtro, setFiltro] = useState('todas');
   const sucursalesConFallas = sucursales.filter((s) => s.failures.length > 0);
   const totalFallas = sucursales.reduce((total, s) => total + s.failures.length, 0);
@@ -14,7 +20,7 @@ export default function Dashboard({ rol = 'Técnico' }) {
     if (filtro === 'fallas') return sucursales.filter((s) => s.failures.length > 0);
     if (filtro === 'ok') return sucursales.filter((s) => s.failures.length === 0);
     return sucursales;
-  }, [filtro]);
+  }, [filtro, sucursales]);
 
   const fallasConsolidadas = sucursales.flatMap((s) => s.failures.map((f) => ({ ...f, branch: s })));
 
