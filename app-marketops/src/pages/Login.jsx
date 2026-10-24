@@ -1,15 +1,29 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import heroImage from '../assets/login-bg.jpeg';
+import { usuarios } from '../data/Usuarios.js';
 
-export default function Login() {
-  const [usuario, setUsuario] = useState('');
+export default function Login({ setUsuario, usuarios: usuariosDisponibles = usuarios }) {
+  const [usuario, setUsuarioInput] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   function iniciarSesion(event) {
     event.preventDefault();
-    // La autenticación real no está implementada: este acceso solo permite probar la maqueta.
+
+    const nombre = usuario.trim();
+    const usuarioEncontrado = usuariosDisponibles.find((usuarioActual) =>
+      usuarioActual.nombre.toLowerCase().includes(nombre.toLowerCase())
+    );
+
+    const usuarioLogueado = usuarioEncontrado || {
+      id: 99,
+      nombre: nombre || 'Demo Encargado',
+      rol: 'Encargado',
+      slug: 'santiago-centro'
+    };
+
+    setUsuario(usuarioLogueado);
     navigate('/dashboard');
   }
 
@@ -35,7 +49,7 @@ export default function Login() {
             <p>Ingresa tus datos para continuar.</p>
           </div>
           <label htmlFor="usuario">Usuario</label>
-          <input id="usuario" name="usuario" type="text" placeholder="Ingrese el usuario" autoComplete="username" value={usuario} onChange={(e) => setUsuario(e.target.value)} required />
+          <input id="usuario" name="usuario" type="text" placeholder="Ingrese el usuario" autoComplete="username" value={usuario} onChange={(e) => setUsuarioInput(e.target.value)} required />
           <label htmlFor="password">Contraseña</label>
           <input id="password" name="password" type="password" placeholder="Ingrese la contraseña" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <button className="primary-button" type="submit">Ingresar</button>

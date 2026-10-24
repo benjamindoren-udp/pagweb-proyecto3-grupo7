@@ -1,11 +1,21 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import Header from '../components/Header.jsx';
-
+import {usuarios} from '../data/Usuarios.js';
 export default function DetalleSucursal({sucursales,
-  setSucursales}) {
+  setSucursales, usuario}) {
+
+
   const { slug } = useParams();
-  const sucursal = sucursales.find((item) => item.slug === slug);
+  const sucursal = sucursales.find((item) => item.slug.toLowerCase() === slug.toLowerCase());
   if (!sucursal) return <Navigate to="/dashboard" replace />;
+  if (!usuario) return <Navigate to="/" replace />;
+
+  const rolUsuario = (usuario.rol || '').toLowerCase();
+  const slugUsuario = (usuario.slug || '').toLowerCase();
+
+  if ((rolUsuario === 'encargado' || rolUsuario === 'encargada') && slugUsuario && slugUsuario !== slug.toLowerCase()) {
+    return <Navigate to="/dashboard" replace />;
+  }
 
   const tieneFallas = sucursal.failures.length > 0;
   const cambiarEstadoEquipo=(idEquipo, nuevoEstado) => {
@@ -24,7 +34,7 @@ export default function DetalleSucursal({sucursales,
           failures.push({
             id: idEquipo,
             description:
-            fallaAnterior?.description ?? 'Falla registrada por tecnico'
+            fallaAnterior?.description ?? `Falla registrada por ${usuario.rol}`
           });
         }
         if(nuevoEstado==='fuera de servicio') {
