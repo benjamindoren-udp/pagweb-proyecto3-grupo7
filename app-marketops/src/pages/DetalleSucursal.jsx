@@ -5,7 +5,7 @@ import Header from '../components/Header.jsx';
 export default function DetalleSucursal({ sucursales, setSucursales }) {
   const { slug } = useParams();
 
-  // Estados locales para controlar el modal y sus validaciones git
+  // Estados locales para controlar el modal y sus validaciones
   const [equipoAEditar, setEquipoAEditar] = useState(null);
   const [nuevoEstadoPending, setNuevoEstadoPending] = useState('');
   const [motivoTexto, setMotivoTexto] = useState('');
@@ -54,6 +54,7 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
 
   // Intercepta la selección para solicitar el motivo previo al cambio
   const solicitarCambioEstado = (idEquipo, estadoSeleccionado) => {
+    if (!estadoSeleccionado) return;
     setEquipoAEditar(idEquipo);
     setNuevoEstadoPending(estadoSeleccionado);
     setMotivoTexto('');
@@ -190,21 +191,21 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
         </section>
       </main>
 
-      {equipoAEditar && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-lg border border-gray-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-2">Confirmar cambio de estado</h3>
-            <p className="text-sm text-gray-600 mb-4">
+      {/* Ventana modal de confirmación con clases CSS asociadas */}
+      {equipoAEditar !== null && (
+        <div className="modal-overlay">
+          <div className="modal-card">
+            <h3>Confirmar cambio de estado</h3>
+            <p>
               Vas a cambiar el estado del equipo <strong>{equipoAEditar}</strong> a{' '}
-              <strong className="capitalize text-blue-600">{nuevoEstadoPending}</strong>.
+              <strong className="highlight-danger">{nuevoEstadoPending}</strong>.
             </p>
 
-            <div className="mb-4">
-              <label className="block text-sm font-semibold text-gray-700 mb-1">
-                Motivo del cambio <span className="text-red-500">*</span>
+            <div className="form-group">
+              <label>
+                Motivo del cambio <span>*</span>
               </label>
               <textarea
-                className="w-full border rounded p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 rows="3"
                 placeholder="Escribe el motivo obligatoriamente..."
                 value={motivoTexto}
@@ -213,23 +214,21 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
                   setErrorMotivo('');
                 }}
               />
-              {errorMotivo && (
-                <p className="text-red-500 text-xs font-semibold mt-1">{errorMotivo}</p>
-              )}
+              {errorMotivo && <p className="error-text">{errorMotivo}</p>}
             </div>
 
-            <div className="flex justify-end gap-2">
+            <div className="modal-actions">
               <button
                 type="button"
+                className="btn-secondary"
                 onClick={() => setEquipoAEditar(null)}
-                className="px-4 py-2 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
               >
                 Cancelar
               </button>
               <button
                 type="button"
+                className="btn-primary"
                 onClick={confirmarCambioConMotivo}
-                className="px-4 py-2 text-sm bg-blue-600 text-white font-medium rounded hover:bg-blue-700"
               >
                 Guardar Cambio
               </button>

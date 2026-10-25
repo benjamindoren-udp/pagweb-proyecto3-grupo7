@@ -257,6 +257,99 @@ footer a:hover { text-decoration:underline; }
 .empty-state strong { color:#166534; font-size:14px; }
 .empty-state p { margin-top:4px; color:#4b5563; font-size:13px; }
 
+/* ---------- modal / formulario confirmar cambio de estado ---------- */
+.confirm-box, .modal-card {
+    margin-top: 22px;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.confirm-box h3, .modal-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.confirm-box p, .modal-card p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.confirm-box strong, .modal-card strong {
+    color: #111827;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #374151;
+}
+
+.form-group textarea, .form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 14px;
+    color: #111827;
+    outline: none;
+    background: #fff;
+    resize: vertical;
+}
+
+.form-group textarea:focus, .form-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.14);
+}
+
+.modal-actions, .confirm-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.modal-actions button, .confirm-actions button {
+    padding: 9px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color .15s ease, border-color .15s ease;
+}
+
+.btn-secondary, button.cancelar {
+    background-color: #ffffff;
+    border-color: #d1d5db !important;
+    color: #374151;
+}
+
+.btn-secondary:hover, button.cancelar:hover {
+    background-color: #f3f4f6;
+}
+
+.btn-primary, button.guardar {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover, button.guardar:hover {
+    background-color: #1d4ed8;
+}
+
 @media (max-width: 760px) {
   .login-page { grid-template-columns:1fr; }
   .login-brand { min-height:260px; padding:25px; }
