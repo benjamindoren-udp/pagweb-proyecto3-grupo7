@@ -230,7 +230,7 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
                 className="btn-primary"
                 onClick={confirmarCambioConMotivo}
               >
-                Guardar Cambio
+               Guardar cambios
               </button>
             </div>
           </div>
