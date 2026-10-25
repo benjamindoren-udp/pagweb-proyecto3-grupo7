@@ -232,7 +232,7 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
               >
                 Guardar Cambio
               </button>
-            </div>ss
+            </div>
           </div>
         </div>
       )}
