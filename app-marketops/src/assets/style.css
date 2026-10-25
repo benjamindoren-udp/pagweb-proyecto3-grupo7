@@ -182,8 +182,6 @@ footer {
 }
 
 /* ---------- detalle sucursal ---------- */
-
-/* ---------- ajustes globales de la migración ---------- */
 :root { font-synthesis: none; text-rendering: optimizeLegibility; }
 button, input { font: inherit; }
 a { transition: color .15s ease, background-color .15s ease; }
