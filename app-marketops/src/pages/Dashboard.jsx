@@ -41,7 +41,7 @@ export default function Dashboard({ rol = 'Técnico', sucursales = [], usuario =
       <Header title="MarketOps — Dashboard de Equipos" subtitle={`Vista de ${rolActual} · Datos de demostración`} />
       <main>
         <div className="nota-ejemplo">
-          <b>Maqueta académica:</b> se muestran datos de ejemplo del HTML original. El inicio de sesión y los datos aún no están conectados a un backend.
+          <b>Ejemplo:</b> se muestran datos de ejemplo del HTML original. El inicio de sesión y los datos aún no están conectados a un backend.
         </div>
 
         <h2>Resumen general</h2>
