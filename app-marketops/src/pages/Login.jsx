@@ -23,8 +23,11 @@ export default function Login({ setUsuario, usuarios: usuariosDisponibles = usua
       slug: 'santiago-centro'
     };
 
+    const rolUsuario = (usuarioLogueado.rol || '').toLowerCase();
+    const esAdmin = rolUsuario === 'administrador' || rolUsuario === 'admin';
+
     setUsuario(usuarioLogueado);
-    navigate('/dashboard');
+    navigate(esAdmin ? '/admin' : '/dashboard');
   }
 
   return (

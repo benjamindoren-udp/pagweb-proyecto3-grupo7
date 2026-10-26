@@ -12,8 +12,10 @@ export default function DetalleSucursal({sucursales,
 
   const rolUsuario = (usuario.rol || '').toLowerCase();
   const slugUsuario = (usuario.slug || '').toLowerCase();
+  const esAdmin = rolUsuario === 'administrador' || rolUsuario === 'admin';
+  const esEncargado = rolUsuario === 'encargado' || rolUsuario === 'encargada';
 
-  if ((rolUsuario === 'encargado' || rolUsuario === 'encargada') && slugUsuario && slugUsuario !== slug.toLowerCase()) {
+  if (!esAdmin && esEncargado && slugUsuario && slugUsuario !== slug.toLowerCase()) {
     return <Navigate to="/dashboard" replace />;
   }
 
