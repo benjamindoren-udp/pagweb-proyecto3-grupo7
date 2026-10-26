@@ -39,3 +39,9 @@ En este Hito 2 la plataforma evolucionó hacia una aplicación de una sola pági
 - **Flujo con Modal y Validación Obligatoria:** Al cambiar el estado de un equipo se despliega un modal con un formulario que exige **ingresar obligatoriamente el motivo del cambio** antes de guardar.
 - **Actualización Reflejada:** El cambio de estado y la observación se actualizan de forma inmediata tanto en la vista de detalle como en el listado general.
 - **Diseño Responsivo:** Hoja `style.css` unificada y probada en resoluciones de 390px, 768px y 1366px.
+
+Integrante 1: Benjamin Doren
+Integrante 2: Darien Corsi
+Integrante 3: Catalina Ordenes
+Repositorio: https://github.com/benjamindoren-udp/pagweb-proyecto3-grupo7
+Link pagina: http://44.212.201.30/
