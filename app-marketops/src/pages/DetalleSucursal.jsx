@@ -10,6 +10,7 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
   const [nuevoEstadoPending, setNuevoEstadoPending] = useState('');
   const [motivoTexto, setMotivoTexto] = useState('');
   const [errorMotivo, setErrorMotivo] = useState('');
+  
 
   const sucursal = sucursales.find((item) => item.slug === slug);
   if (!sucursal) return <Navigate to="/dashboard" replace />;
