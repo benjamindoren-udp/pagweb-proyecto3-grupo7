@@ -7,7 +7,7 @@ const app = express();
 const PORT = 3000;
 
 const cliente = new MongoClient(process.env.MONGODB_URI)
-
+app.use(cors());
 app.use(express.json())
 app.get('/api/sucursales', async (req, res) => {
   try {
@@ -29,9 +29,9 @@ const startServer = async () => {
         await mongoose.connect(process.env.MONGODB_URI);
         app.listen(PORT);
         console.log('servidor iniciado');
-    }catch{
-        console.log(404);
-    }
+    }catch (err) {
+  console.error("Error detallando conexión a Mongo:", err);
+};
 
 };
 
