@@ -10,47 +10,67 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
   const [nuevoEstadoPending, setNuevoEstadoPending] = useState('');
   const [motivoTexto, setMotivoTexto] = useState('');
   const [errorMotivo, setErrorMotivo] = useState('');
-  
+  const [guardando, setGuardando] = useState(false);
 
   const sucursal = sucursales.find((item) => item.slug === slug);
   if (!sucursal) return <Navigate to="/dashboard" replace />;
 
   const tieneFallas = sucursal.failures.length > 0;
 
-  // Función de actualización de estado global de la aplicación
-  const cambiarEstadoEquipo = (idEquipo, nuevoEstado, motivoIngresado) => {
-    setSucursales((sucursalesActuales) => {
-      return sucursalesActuales.map((item) => {
-        if (item.slug !== slug) return item;
+  // Función de actualización en MongoDB y en el estado global de la aplicación
+  const cambiarEstadoEquipo = async (idEquipo, nuevoEstado, motivoIngresado) => {
+    const fallaAnterior = sucursal.failures.find((falla) => falla.id === idEquipo);
+    const working = sucursal.working.filter((id) => id !== idEquipo);
+    const failures = sucursal.failures.filter((falla) => falla.id !== idEquipo);
+    const outOfService = (sucursal.outOfService ?? []).filter((id) => id !== idEquipo);
 
-        const fallaAnterior = item.failures.find((falla) => falla.id === idEquipo);
-        const working = item.working.filter((id) => id !== idEquipo);
-        const failures = item.failures.filter((falla) => falla.id !== idEquipo);
-        const outOfService = (item.outOfService ?? []).filter((id) => id !== idEquipo);
+    if (nuevoEstado === 'funcionando') {
+      working.push(idEquipo);
+    }
 
-        if (nuevoEstado === 'funcionando') {
-          working.push(idEquipo);
-        }
+    if (nuevoEstado === 'fallando') {
+      failures.push({
+        id: idEquipo,
+        description: motivoIngresado || fallaAnterior?.description || 'Falla registrada por técnico'
+      });
+    }
 
-        if (nuevoEstado === 'fallando') {
-          failures.push({
-            id: idEquipo,
-            description: motivoIngresado || fallaAnterior?.description || 'Falla registrada por técnico'
-          });
-        }
+    if (nuevoEstado === 'fuera de servicio') {
+      outOfService.push(idEquipo);
+    }
 
-        if (nuevoEstado === 'fuera de servicio') {
-          outOfService.push(idEquipo);
-        }
+    try {
+      setGuardando(true);
 
-        return {
-          ...item,
+      const res = await fetch(`http://127.0.0.1:3000/api/sucursales/${sucursal._id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
           working,
           failures,
           outOfService
-        };
+        })
       });
-    });
+
+      const dato = await res.json();
+      if (!res.ok) throw new Error(dato.error || `Error HTTP: ${res.status}`);
+
+      setSucursales((sucursalesActuales) =>
+        sucursalesActuales.map((item) =>
+          item.slug === slug ? { ...item, working, failures, outOfService } : item
+        )
+      );
+
+      return true;
+    } catch (error) {
+      console.error('Error al guardar en la base de datos:', error);
+      setErrorMotivo('No se pudo guardar el cambio en la base de datos.');
+      return false;
+    } finally {
+      setGuardando(false);
+    }
   };
 
   // Intercepta la selección para solicitar el motivo previo al cambio
@@ -63,13 +83,15 @@ export default function DetalleSucursal({ sucursales, setSucursales }) {
   };
 
   // Validación y confirmación del formulario dentro del modal
-  const confirmarCambioConMotivo = () => {
+  const confirmarCambioConMotivo = async () => {
     if (!motivoTexto.trim()) {
       setErrorMotivo('El motivo del cambio de estado es obligatorio.');
       return;
     }
 
-    cambiarEstadoEquipo(equipoAEditar, nuevoEstadoPending, motivoTexto);
+    const guardadoExitoso = await cambiarEstadoEquipo(equipoAEditar, nuevoEstadoPending, motivoTexto);
+    if (!guardadoExitoso) return;
+
     setEquipoAEditar(null);
     setNuevoEstadoPending('');
     setMotivoTexto('');

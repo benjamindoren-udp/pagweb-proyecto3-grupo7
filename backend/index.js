@@ -2,9 +2,27 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import {MongoClient} from 'mongodb'
+import {MongoClient, ObjectId} from 'mongodb';
 const app = express();
 const PORT = 3000;
+
+
+const sucursalSchema = new mongoose.Schema({
+  id: Number,
+  name: String,
+  slug: String,
+  working: [Number],
+  failures: [
+    {
+      id: Number,
+      description: String
+    }
+  ],
+  outOfService: [Number]
+});
+
+const Sucursal = mongoose.model('Sucursal', sucursalSchema, 'sucursales');
+
 
 const cliente = new MongoClient(process.env.MONGODB_URI)
 app.use(cors());
@@ -23,6 +41,34 @@ app.get('/api/sucursales', async (req, res) => {
   }
 });
 
+
+app.patch('/api/sucursales/:id', async (req, res) => {
+  try {
+    const db = cleinte.db('MarketOps');
+    const { id } = req.params;
+    const { working, failures, outOfService } = req.body;
+
+    
+    const filtro = ObjectId.isValid(id)
+      ? { $or: [{ _id: new ObjectId(id) }, { _id: id }] }
+      : { _id: id };
+
+    const resultado = await db.collection('Equipos').findOneAndUpdate(
+      filtro,
+      { $set: { working, failures, outOfService } },
+      { returnDocument: 'after' }
+    );
+
+    if (!resultado) {
+      return res.status(404).json({ error: 'Sucursal no encontrada' });
+    }
+
+    return res.json(resultado);
+  } catch (error) {
+    console.error('Error en PATCH:', error);
+    return res.status(500).json({ error: error.message });
+  }
+});
 
 const startServer = async () => {
     try{
